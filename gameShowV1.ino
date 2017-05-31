@@ -4,20 +4,26 @@
 //Only one button will light at a time, until the reset button is pressed.
 //The reset button turns off all LEDs and sets everything up for the next "round".
 
+///Define Buttons
+//Reset Button
 int resetButtonPin = 2;
 
+//Button1
 int button1Pin = 13;
 int led1Pin = 12;
 int button1State = 0; 
 
+//Button2
 int button2Pin = 11;
 int led2Pin = 10;
 int button2State = 0; 
 
+//Button3
 int button3Pin = 9;
 int led3Pin = 8;
 int button3State = 0; 
 
+//Button4
 int button4Pin = 7;
 int led4Pin = 6;
 int button4State = 0; 
@@ -136,21 +142,26 @@ void loop() {
 
 
 void resetButtons() {
+  
   lastbutton1State = 0;
   lastbutton2State = 0;
   lastbutton3State = 0;
   lastbutton4State = 0;
   resetButtonState = 0;
   lastResetState = 0;
+  
   button1State = 0;
   button2State = 0;
   button3State = 0;
   button4State = 0;
-  Serial.print("reset all Buttons");
+  
+  Serial.print("All the Buttons where reset!");
+  
   digitalWrite(led1Pin, LOW);
   digitalWrite(led2Pin, LOW);
   digitalWrite(led3Pin, LOW);
   digitalWrite(led4Pin, LOW);
   digitalWrite(resetButtonPin, LOW);
+  
   pollingForPresses = 1;
 }
